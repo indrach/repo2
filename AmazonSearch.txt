@@ -1,0 +1,21 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class AmazonSearchTest {
+
+	public static void main(String[] args) {
+        // Create a new instance of a driver
+    	System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+    	WebDriver driver = new ChromeDriver();	
+
+        // Navigate to amazon.com website
+        driver.get("http://www.amazon.com/");
+
+        // Create a new instance of the search page class
+        // and initialise any WebElement fields in it.
+          EnterAmazonSearch search = PageFactory.initElements(driver, EnterAmazonSearch.class);
+        // Pass search category and search string.
+          search.searchFor("Electronics", "Nikon Z6");
+    }
+}
