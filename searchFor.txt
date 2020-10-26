@@ -1,0 +1,24 @@
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+public class EnterAmazonSearch {
+	//locate the category drop-down
+	@FindBy(id = "searchDropdownBox")
+   private  WebElement departmentSelectBox;
+
+	//locate the search box
+     @FindBy(id = "twotabsearchtextbox")
+   private WebElement searchText;
+
+   //locate the go button for search
+     @FindBy(xpath = "//input[@value=\"Go\"]")
+   private WebElement searchButton;
+   
+    // this method takes the category and search string and searches on amazon using the category and search item passed
+   public void searchFor(String category, String item) {
+       
+	   departmentSelectBox.sendKeys(category);
+	   searchText.sendKeys(item);
+	   searchButton.submit();
+   }  
+     
+ }
